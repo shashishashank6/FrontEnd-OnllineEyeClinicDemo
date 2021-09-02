@@ -1,0 +1,45 @@
+<p>update-doctor works!</p>
+<div class="col-md-6 offset-md-3">
+    <h6>Update-doctor</h6>
+    <form (ngSubmit)="saveUpdatedDoctor()" autocomplete="off">
+    <div class="form-group">
+    <label>
+     Full Name
+    </label>
+    <input type="text"  class="form-control form-control-sm"  id="doctorName"
+    [(ngModel)]="doctor.doctorName" name="doctorName">
+    <label>
+    Consultation Time
+    </label>
+    <input type="text" class="form-control form-control-sm" id="doctorConsultationTime"
+    [(ngModel)]="doctor.doctorConsultationTime" name="doctorConsultationTime">
+    <label>
+        Mobile
+    </label>
+    <input type="number" class="form-control form-control-sm" id="mobile"
+    [(ngModel)]="doctor.doctorMobile" name="mobile">
+    <label>
+        Email
+    </label>
+    <input type="text" class="form-control form-control-sm" id="email"
+    [(ngModel)]="doctor. doctorEmail" name="email">
+    <label>
+        User Name
+    </label>
+    <input type="text" class="form-control form-control-sm" id="username"
+    [(ngModel)]="doctor.doctorUserName" name="username">
+    <label>
+        password
+    </label>
+    <input type="password" class="form-control form-control-sm" id="password"
+    [(ngModel)]="doctor.doctorPassword" name="password">
+    <label>
+        Address
+    </label>
+    <input type="text" class="form-control form-control-sm" id="address"
+    [(ngModel)]="doctor.doctorAddress" name="address">
+    </div>
+    <br>
+    <button class="btn-sm btn-success" type="submit">Submit</button>
+    </form>
+    </div>

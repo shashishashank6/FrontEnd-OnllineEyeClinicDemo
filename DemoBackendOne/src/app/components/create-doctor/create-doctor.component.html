@@ -1,0 +1,70 @@
+ <div class="col-md-6 offset-md-3">
+<h6>create-doctor</h6>
+<form (ngSubmit)="saveDoctor()" autocomplete="off" [formGroup]="form" >
+<div class="form-group">
+<label>
+ Full Name
+</label>
+
+<input  type="text"  class="form-control form-control-sm" 
+formControlName="doctorname"
+name="doctorname"
+id="doctorname"
+[(ngModel)]="doctor.doctorName"
+placeholder="Enter Full Name" >
+<div *ngIf="form.get('doctorname').touched && form.get('doctorname').invalid"  class="alert alert-danger">
+required
+</div>
+<label>
+Consultation Time
+</label>
+<input formControlName="doctorConsultationTime" type="text" class="form-control form-control-sm" id="doctorConsultationTime"
+[(ngModel)]="doctor.doctorConsultationTime">
+<div *ngIf="form.get('doctorConsultationTime').touched && form.get('doctorConsultationTime').invalid"  class="alert alert-danger">
+    required
+    </div>
+<label>
+    Mobile
+</label>
+<input formControlName="mobile" type="number" class="form-control form-control-sm" id="mobile"
+[(ngModel)]="doctor.doctorMobile">
+<div *ngIf="form.get('mobile').touched && form.get('mobile').invalid"  class="alert alert-danger">
+    required
+    </div>
+<label>
+    Email
+</label>
+<input formControlName="email" type="text" class="form-control form-control-sm" id="email"
+[(ngModel)]="doctor. doctorEmail" >
+<div *ngIf="form.get('email').touched && form.get('email').invalid"  class="alert alert-danger">
+    required
+    </div>
+<label>
+    User Name
+</label>
+<input formControlName="username" type="text" class="form-control form-control-sm" id="username"
+[(ngModel)]="doctor.doctorUserName">
+<div *ngIf="form.get('username').touched && form.get('username').invalid"  class="alert alert-danger">
+    required
+    </div>
+<label>
+    password
+</label>
+<input formControlName="password" type="password" class="form-control form-control-sm" id="password"
+[(ngModel)]="doctor.doctorPassword">
+<div *ngIf="form.get('password').touched && form.get('password').invalid"  class="alert alert-danger">
+    required
+    </div>
+<label>
+    Address
+</label>
+<input formControlName="address" type="text" class="form-control form-control-sm" id="address"
+[(ngModel)]="doctor.doctorAddress">
+<div *ngIf="form.get('address').touched && form.get('address').invalid"  class="alert alert-danger">
+    required
+    </div>
+</div>
+<br>
+<button class="btn-sm btn-success" type="submit">Submit</button>
+</form>
+</div>
