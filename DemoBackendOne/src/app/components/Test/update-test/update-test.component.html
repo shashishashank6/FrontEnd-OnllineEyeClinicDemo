@@ -1,0 +1,27 @@
+<div class="col-md-6 offset-md-3">
+    <h6>Update-doctor</h6>
+    <form (ngSubmit)="saveUpdatedTest()" autocomplete="off">
+    <div class="form-group">
+    <label>
+     Test Name
+    </label>
+    <input type="text"  class="form-control form-control-sm"  id="testName"
+    [(ngModel)]="test.testName" name="testName">
+    <label>
+    Test Cost
+    </label>
+    <input type="number" class="form-control form-control-sm" id="testCost"
+    [(ngModel)]="test.testCost" name="testCost">
+    <label>
+        Test Description
+    </label>
+    <input type="text" class="form-control form-control-sm" id="testDescription"
+    [(ngModel)]="test.testDescription" name="testDescription">
+    <br>
+    <button class="btn-sm btn-success" type="submit">Update</button>
+    </div>
+    </form>
+    <br>
+    <button (click)="goToList()" class="btn-sm btn-primary">Go Back</button>
+    </div>
+   

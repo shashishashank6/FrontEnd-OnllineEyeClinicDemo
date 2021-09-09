@@ -1,3 +1,5 @@
+import { Test } from "./test";
+
 export class Doctor{
     doctorId:number;
     doctorName:string;
@@ -7,4 +9,8 @@ export class Doctor{
     doctorUserName:string;
     doctorPassword:string;
     doctorAddress:string;
+    test:Test[];
+    constructor(){
+
+    }
 }

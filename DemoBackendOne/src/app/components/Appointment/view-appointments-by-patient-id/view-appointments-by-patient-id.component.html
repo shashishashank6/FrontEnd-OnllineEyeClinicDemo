@@ -1,0 +1,43 @@
+<table class="table table-striped table-hover table-responsive-sm">
+    <caption>
+        Your Appointments
+    </caption>
+    <thead>
+        <tr>
+        <th>
+            Appointment count No
+        </th>
+        <th>
+            Date of Appointment
+        </th>
+        <th>
+            Time of Appointment
+        </th>
+        <th>
+            Consultation Fee
+        </th>
+        <th>
+            Delete Appointment
+        </th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let t of appoint|keyvalue;let i=index">
+        <tr>
+            <td>{{i+1}}</td>
+            <td>
+                {{t.value['dateOfAppointment']}} 
+            </td>
+            <td>
+                {{t.value['timeOfAppointment']}}
+            </td>
+            <td>
+                {{t.value['consultationFee']}}
+            </td>
+            <td>
+                <button (click)="deleteAppointment(t.value['appointmentId'])" class="btn-sm btn-danger">Delete Appointment</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<button (click)="goBack()" class="btn btn-sm btn-primary">Go Back</button>

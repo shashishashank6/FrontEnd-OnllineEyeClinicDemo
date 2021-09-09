@@ -1,0 +1,34 @@
+<div class="alert alert-primary head">
+    <h6>Create Test</h6>
+</div>
+<form [formGroup]="testForm"  autocomplete="off">
+    <div class="form-group">
+        <label  for="testName">Test Name</label>
+        <input [(ngModel)]="test.testName" 
+         class="form-control" type="text" name="testName" id="test.testName" formControlName="testName" placeholder="Test Name">
+         <div *ngIf="testForm.get('testName').touched && testForm.get('testName').invalid"  class="alert alert-danger">
+    required
+    </div>
+    </div>
+    <div class="form-group">
+        <label for="testCost">Test Cost</label>
+        <input [(ngModel)]="test.testCost"
+         class="form-control" type="number" name="testCost" id="testCost" formControlName="testCost" placeholder=
+         "To be Filled by Admin">
+    </div>
+    <div class="form-group">
+        
+
+        <label for="testDescription">Test Description</label>
+        <input [(ngModel)]="test.testDescription"
+        class="form-control" type="number" name="testDescription" id="testDescription" formControlName="testDescription" 
+        placeholder="Test Description">
+        <div *ngIf="testForm.get('testDescription').touched && testForm.get('testDescription').invalid"  class="alert alert-danger">
+            required
+            </div>
+    </div>
+    <br>
+    <input type="submit" value="Create" class="btn-sm btn-primary">
+</form>
+
+

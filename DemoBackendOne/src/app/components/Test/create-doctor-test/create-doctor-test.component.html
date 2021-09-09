@@ -1,0 +1,38 @@
+<div class="alert alert-primary head">
+    <h6>Create Test</h6>
+</div>
+<form [formGroup]="testForm" autocomplete="off" (ngSubmit)="createTest(tForm.value)" #tForm="ngForm"> 
+    <div class="form-group" hidden="true">
+        <input type="text" hidden="true" class="form-control" id="id" [(ngModel)]="test.testId" name="id" formControlName="testId" />
+        <input type="text" hidden="true" class="form-control" id="doctor" [(ngModel)]="test.doctor" name="doctor" formControlName="doctor"/>
+      </div>
+        <label for="doctor" class="col-sm-2 control-label">Doctor</label>
+        <div class="col-sm-10">
+          <input id="doctor" name="doctor" class="form-control" type="text"
+                 value="{{ currentDoctor.doctorName }}" readonly/>
+        </div>
+    
+      <br/>
+    <div class="form-group">
+        <label  for="testName">Test Name</label>
+        <input  [(ngModel)]="test.testName"
+         class="form-control" formControlName="testName" type="text" name="testName" id="testName" placeholder="Test Name">
+        <!--<div *ngIf="testForm.get('testName').touched && testForm.get('testName').invalid"  class="alert alert-danger">
+    required
+        </div>-->
+   </div>
+<div class="form-group">
+        <label for="testDescription">Test Description</label>
+        <input [(ngModel)]="test.testDescription"
+        class="form-control" type="text" name="testDescription" id="testDescription" formControlName="testDescription"
+        placeholder="Test Description">
+        <!--<div *ngIf="testForm.get('testDescription').touched && testForm.get('testDescription').invalid"  class="alert alert-danger">
+            required
+            </div>
+    </div>--->
+
+    </div>
+    <br>
+    <input type="submit" value="Create" class="btn-sm btn-primary">
+</form>
+

@@ -1,0 +1,50 @@
+<div class="alert alert-primary head">
+    <h6>Book Appointment</h6>
+</div>
+<form [formGroup]="appForm" autocomplete="off" (ngSubmit)=" createAppointment(aForm.value)" #aForm="ngForm"> 
+    <!---
+    <div class="form-group" hidden="true">
+        <input type="text" hidden="true" class="form-control" id="id" [(ngModel)]="test.testId" name="id" formControlName="testId" />
+        <input type="text" hidden="true" class="form-control" id="doctor" [(ngModel)]="test.doctor" name="doctor" formControlName="doctor"/>
+      </div>-->
+        <label for="doctor" class="col-sm-2 control-label">Patient</label>
+        <div class="col-sm-10">
+          <input id="patient" name="patient" class="form-control" type="text"
+                 value="{{ currentPatient.patientName }}" readonly/>
+        </div>
+    
+      <br/>
+    <div class="form-group">
+        <label  for="testName">Date of Appointment</label>
+        <input  [(ngModel)]="appoint.dateOfAppointment"
+         class="form-control" formControlName="dateOfAppointment" type="date" name="dateOfAppointment" id="dateOfAppointment">
+        <!--<div *ngIf="testForm.get('testName').touched && testForm.get('testName').invalid"  class="alert alert-danger">
+    required
+        </div>-->
+   </div>
+<div class="form-group">
+        <label for="testDescription">Time of Appointment</label>
+        <input [(ngModel)]="appoint.timeOfAppointment"
+        class="form-control" type="text" name="timeOfAppointment" id="timeOfAppointment" formControlName="timeOfAppointment"
+        placeholder="Enter Time of Appointment(Eg-2:00PM)">
+        <!--<div *ngIf="testForm.get('testDescription').touched && testForm.get('testDescription').invalid"  class="alert alert-danger">
+            required
+            </div>
+    </div>--->
+
+    </div>
+    <div class="form-group">
+        <label for="testDescription">Consultation Fee</label>
+        <input [(ngModel)]="appoint. consultationFee"
+        class="form-control" type="number" name="consultationFee" id="consultationFee" formControlName="consultationFee"
+        placeholder="consultation Fee">
+        <!--<div *ngIf="testForm.get('testDescription').touched && testForm.get('testDescription').invalid"  class="alert alert-danger">
+            required
+            </div>
+    </div>--->
+
+    </div>
+    <br>
+    <input type="submit" value="Book" class="btn-sm btn-primary">
+</form>
+

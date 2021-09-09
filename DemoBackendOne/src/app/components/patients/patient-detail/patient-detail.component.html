@@ -1,0 +1,87 @@
+<table class="table table-striped table-sm table-hover table-responsive-sm">
+    <caption>Patient list</caption>
+<thead>
+    <tr>
+        <th>Patient Id</th>
+        <th>Patient Name</th>
+        <th>Patient Age</th>
+        <th>Patient Mobile</th>
+        <th>Patient Email</th>
+        <th>Patient DOB</th>
+        <th>Patient Username</th>
+        <th>Patient Address</th>
+        <th>Edit profile</th>
+        <th>View your Appointments</th>
+        <th>Book Appointments</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+      <td>
+        {{patient.patientId}}
+        </td>
+        <td>{{patient.patientName}}</td>
+        <td> {{patient.patientAge}}</td>
+        <td>{{patient.patientMobile}}</td>
+        <td>{{patient.patientEmail}}</td>
+        <td>{{patient.patientDOB}}</td>
+        <td>{{patient.patientUserName}}</td>
+        <td>{{patient.patientAddress}}</td>
+        <td>
+            <button (click)="updatePatient(patient.patientId)" class="btn-sm btn-primary">Edit</button>
+            </td>
+            <td>
+            <button (click)="viewAppointments(patient.patientId)" class="btn-sm btn-info">View Appointments</button>
+        </td>
+        <td>
+            <button (click)="createAppointment()" class="btn-sm btn-info">Book Appointment</button>
+        </td>
+            <!---<button (click)="deleteDoctor(doctors.doctorId)" class="btn-sm btn-danger">Delete</button>
+            &nbsp;
+        </td>-->
+    </tr>
+</tbody>
+</table>
+<br>
+<!----
+<table class="table table-striped table-sm table-hover table-responsive-sm">
+    <caption>Your Appointments</caption>
+<thead>
+    <tr>
+        <th>AppointmentId</th>
+        <th>Date of Appointment</th>
+        <th>Consultation Fee</th>
+        <th>Time of Appointment</th>
+    </tr>
+</thead>
+<tbody *ngFor="let p of patient.appointment|keyvalue">
+    <tr>
+        <td >
+                <li>
+               {{p.value['appointmentId']}} 
+                </li>
+        </td>
+        <td>
+            <li>
+                {{p.value['dateOfAppointment']}} 
+                 </li>
+        </td>
+        <td>
+            <li>
+                {{p.value['consultationFee']}} 
+                 </li>
+        </td>
+        <td>
+            <li>
+                {{p.value['timeOfAppointment']}} 
+                 </li>
+        </td>
+      <<td>
+            <button (click)="updatePatient(patient.patientId)" class="btn-sm btn-info">Update</button>
+            &nbsp;
+            <button (click)="deleteDoctor(doctors.doctorId)" class="btn-sm btn-danger">Delete</button>
+            &nbsp;
+        </td>
+    </tr>
+</tbody>
+</table>-->

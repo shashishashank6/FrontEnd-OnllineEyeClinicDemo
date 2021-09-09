@@ -1,0 +1,96 @@
+<p>update-patient works!</p>
+<div class="alert alert-primary head">
+    <h6>Update Patient Form</h6>
+</div>
+<form [formGroup]="patientForm" (ngSubmit)="saveUpdatedPatient()" autocomplete="off">
+    <div class="form-group">
+        <label  for="patientName">Patient Full Name</label>
+        <input [(ngModel)]="patient.patientName" 
+         class="form-control" type="text" name="patientName" id="patientName" formControlName="patientName" placeholder="Enter Full Name">
+         <div *ngIf="patientForm.get('patientName').touched && patientForm.get('patientName').invalid"  class="alert alert-danger">
+    required
+    </div>
+    </div>
+    <div class="form-group">
+        <label for="patientAge">Patient Age</label>
+        <input [(ngModel)]="patient.patientAge"
+         class="form-control" type="text" name="patientAge" id="patientAge" formControlName="patientAge" placeholder="Enter Age">
+         <div *ngIf="patientForm.get('patientAge').touched && patientForm.get('patientAge').invalid"  class="alert alert-danger">
+            required
+            </div>
+    </div>
+    <div class="form-group">
+        
+
+        <label for="patientMobile">Patient Mobile</label>
+        <input [(ngModel)]="patient.patientMobile"
+        class="form-control" type="number" name="patientMobile" id="patientMobile" formControlName="patientMobile" 
+        placeholder="Enter Mobile Number">
+        <div *ngIf="patientForm.get('patientMobile').touched && patientForm.get('patientMobile').invalid"  class="alert alert-danger">
+            required
+            </div>
+    </div>
+
+    <div class="form-group">
+        
+
+        <label for="patientEmail">Patient Email</label>
+        <input [(ngModel)]="patient.patientEmail"
+         class="form-control" type="text" name="patientEmail" id="patientEmail" formControlName="patientEmail" 
+        placeholder="Enter Email">
+        <div *ngIf="patientForm.get('patientEmail').touched && patientForm.get('patientEmail').invalid"  class="alert alert-danger">
+            required
+            </div>
+    </div>
+
+    <!--<div class="form-group">
+        <div *ngIf="patientForm.controls.patientDOB.errors && 
+        (patientForm.controls.patientDOB.touched || patientForm.controls.patientDOB.dirty)">
+            Patient DOB is required
+        </div>
+
+        <label for="patientDOB">Patient DOB</label>
+        <input class="form-control" type="date" name="patientDOB" id="patientDOB" formControlName="patientDOB" 
+        placeholder="enter date of birth" pattern="\d{2}-\d{3}-\d{4}">
+    </div>-->
+
+    <div class="form-group">
+        
+
+        <label for="patientUserName">Patient UserName</label>
+        <input [(ngModel)]="patient.patientUserName"
+         class="form-control" type="text" name="patientUserName" id="patientUserName" formControlName="patientUserName"
+        placeholder="enter UserName"
+        >
+        <div *ngIf="patientForm.get('patientUserName').touched && patientForm.get('patientUserName').invalid"  class="alert alert-danger">
+            required
+            </div>
+    </div>
+
+    <div class="form-group">
+       
+
+        <label for="patientPassword">Patient Password</label>
+        <input [(ngModel)]="patient.patientPassword"
+         class="form-control" type="password" name="patientPassword" id="patientPassword" formControlName="patientPassword"
+        placeholder="enter password"
+        >
+        <div *ngIf="patientForm.get('patientPassword').touched && patientForm.get('patientPassword').invalid"  class="alert alert-danger">
+            required
+            </div>
+    </div>
+
+    <div class="form-group">
+        
+        <label for="patientAddress">Patient Address</label>
+        <input [(ngModel)]="patient.patientAddress"
+         class="form-control" type="text" name="patientAddress" id="patientAddress" formControlName="patientAddress"
+        placeholder="enter addtress"
+        >
+        <div *ngIf="patientForm.get('patientAddress').touched && patientForm.get('patientAddress').invalid"  class="alert alert-danger">
+            required
+            </div>
+    </div>
+    <br>
+    <input type="submit" value="Update" class="btn-sm btn-primary">
+</form>
