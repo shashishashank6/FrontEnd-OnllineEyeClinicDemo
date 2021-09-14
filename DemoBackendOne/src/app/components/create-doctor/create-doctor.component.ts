@@ -12,6 +12,7 @@ import { DoctorComponent } from '../doctor/doctor.component';
 })
 export class CreateDoctorComponent implements OnInit {
 
+  currentAdmin:any;
 
 doctor:Doctor=new Doctor();
 form=new FormGroup({
@@ -56,5 +57,9 @@ validateAllFields(formGroup: FormGroup) {
 }
 goToDoctorsList(){
   this.router.navigate(['/doctors']);
+}
+goBack(){
+  this.currentAdmin=sessionStorage.getItem('userid');
+  this.router.navigate(['admin-details',this.currentAdmin]);
 }
 }

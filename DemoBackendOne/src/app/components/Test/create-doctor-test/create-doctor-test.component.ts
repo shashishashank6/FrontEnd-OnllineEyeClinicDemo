@@ -58,4 +58,7 @@ currentDoctor:Doctor;
     },
     error => this.errorMessage = error as any);
   }
+  goBack(){
+    this.route.navigate(["doctor-details",this.currentDoctor.doctorId]);
+  }
 }

@@ -10,7 +10,11 @@ export class Doctor{
     doctorPassword:string;
     doctorAddress:string;
     test:Test[];
-    constructor(){
+    overload_constructor(){
 
+    }
+    constructor(username?:string,password?:string){
+        this.doctorUserName=username;
+        this.doctorPassword=password;
     }
 }

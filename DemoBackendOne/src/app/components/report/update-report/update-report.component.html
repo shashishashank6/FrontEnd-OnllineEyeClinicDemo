@@ -1,0 +1,43 @@
+<p>update-report works!</p>
+<div class="col-md-6 offset-md-3">
+    <h6>Update-report</h6>
+    <form (ngSubmit)="saveUpdatedReport()" autocomplete="off">
+    <div class="form-group">
+
+    <label>
+     Report Id
+    </label>
+    <input type="number"  class="form-control form-control-sm"  id="report id"
+    [(ngModel)]="report.reportId" name="report Id">
+    <label>
+        dateOfReport
+    </label>
+    <input type="text" class="form-control form-control-sm" id="DateofReport"
+    [(ngModel)]="report.dateOfReport" name="DateofReport">
+    <label>
+        descriptionOfReport
+    </label>
+    <input type="text" class="form-control form-control-sm" id="descriptionOfReport"
+    [(ngModel)]="report.description" name="descriptionOfReport">
+    <label>
+        visualAcuity
+    </label>
+    <input type="text" class="form-control form-control-sm" id="visual Acuity"
+    [(ngModel)]="report.visualAcuity" name="visual Acuity">
+    <label>
+        visualAcuityForNear
+        </label>
+    <input type="text" class="form-control form-control-sm" id="visualAcuityForNear"
+    [(ngModel)]="report.visualAcuityForNear" name="visualAcuityForNear">
+    <label>
+        visualAcuityForDistance
+    </label>
+    <input type="text" class="form-control form-control-sm" id="visualAcuityForDistance"
+    [(ngModel)]="report.visualAcuityForDistance" name="visualAcuityForDistance">
+</div>
+    <br>
+    <button class="btn-sm btn-primary" type="submit">Submit</button>
+    &nbsp;
+    <button (click)="goBack()" class="btn-sm btn-primary" type="submit">Go back</button>
+    </form>
+    </div>

@@ -31,6 +31,21 @@ import { TestService } from './services/test.service';
 import { AppointmentService } from './services/appointment.service';
 import { ViewAppointmentsByPatientIdComponent } from './components/Appointment/view-appointments-by-patient-id/view-appointments-by-patient-id.component';
 import { CreatePatientAppointmentComponent } from './components/Appointment/create-patient-appointment/create-patient-appointment.component';
+import { UpdatePatientAppointmentComponent } from './components/Appointment/update-patient-appointment/update-patient-appointment.component';
+import { ReportDataComponent } from './components/report/report-data/report-data.component';
+import { ReportDetailsComponent } from './components/report/report-details/report-details.component';
+import { AddReportComponent } from './components/report/add-report/add-report.component';
+import { UpdateReportComponent } from './components/report/update-report/update-report.component';
+import { ReportService } from './services/report.service';
+import { ReportListComponent } from './components/report/report-list/report-list.component';
+import { ViewReportByTestComponent } from './components/report/view-report-by-test/view-report-by-test.component';
+import { CreateReportByTestComponent } from './components/report/create-report-by-test/create-report-by-test.component';
+import { ViewReportByPatientComponent } from './components/report/view-report-by-patient/view-report-by-patient.component';
+import { PatientLoginComponent } from './components/patients/patient-login/patient-login.component';
+import { ViewDoctorAppointmentComponent } from './components/Appointment/view-doctor-appointment/view-doctor-appointment.component';
+import { DoctorLoginComponent } from './components/doctor-login/doctor-login.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+
 
 @NgModule({
   declarations: [
@@ -55,7 +70,21 @@ import { CreatePatientAppointmentComponent } from './components/Appointment/crea
     UpdateTestComponent,
     AppointmentListComponent,
     ViewAppointmentsByPatientIdComponent,
-    CreatePatientAppointmentComponent
+    CreatePatientAppointmentComponent,
+    UpdatePatientAppointmentComponent,
+    ReportDataComponent,
+    ReportDetailsComponent,
+    AddReportComponent,
+    UpdateReportComponent,
+    ReportListComponent,
+    ViewReportByTestComponent,
+    CreateReportByTestComponent,
+    ViewReportByPatientComponent,
+    PatientLoginComponent,
+    ViewDoctorAppointmentComponent,
+    DoctorLoginComponent,
+    HomePageComponent,
+
 
   ],
   imports: [
@@ -65,7 +94,7 @@ import { CreatePatientAppointmentComponent } from './components/Appointment/crea
     FormsModule,
     ReactiveFormsModule  
   ],
-  providers: [DoctorService,AdminService,PatientService,DatePipe,TestService,AppointmentService],
+  providers: [DoctorService,AdminService,PatientService,DatePipe,TestService,AppointmentService,ReportService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

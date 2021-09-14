@@ -1,0 +1,54 @@
+<div class="alert alert-primary head">
+    <h6>Create Report Form</h6>
+</div>
+<div class="col-md-6 offset-md-3">
+    <form (ngSubmit)="saveReport()" autocomplete="off" [formGroup]="form" >
+    <div class="form-group">
+    <label>
+    Date Of Report
+    </label>
+
+    <input formControlName="dateOfReport" type="date" class="form-control form-control-sm" id="dateOfReport"
+    [(ngModel)]="report.dateOfReport">
+   <!-- <div *ngIf="form.get('dateOfReport').touched && form.get('dateOfReport').invalid"  class="alert alert-danger">
+        required
+        </div>-->
+    <label>
+        description Of Report
+    </label>
+    <input formControlName="description" type="text" class="form-control form-control-sm" id="description"
+    [(ngModel)]="report.description">
+    <div *ngIf="form.get('description').touched && form.get('description').invalid"  class="alert alert-danger">
+        required
+        </div>
+    <label>
+        visual Acuity
+    </label>
+    <input formControlName="visualAcuity" type="text" class="form-control form-control-sm" id="visualAcuity"
+    [(ngModel)]="report.visualAcuity" >
+    <div *ngIf="form.get('visualAcuity').touched && form.get('visualAcuity').invalid"  class="alert alert-danger">
+        required
+        </div>
+    <label>
+        visual Acuity For Near
+    </label>
+    <input formControlName="visualAcuityForNear" type="text" class="form-control form-control-sm" id="visualAcuityForNear"
+    [(ngModel)]="report.visualAcuityForNear">
+    <div *ngIf="form.get('visualAcuityForNear').touched && form.get('visualAcuityForNear').invalid"  class="alert alert-danger">
+        required
+        </div>
+    <label>
+        visual Acuity For Distance
+    </label>
+    <input formControlName="visualAcuityForDistance" type="text" class="form-control form-control-sm" id="visualAcuityForDistance"
+    [(ngModel)]="report.visualAcuityForDistance">
+    <div *ngIf="form.get('visualAcuityForDistance').touched && form.get('visualAcuityForDistance').invalid"  class="alert alert-danger">
+        required
+        </div>
+    
+    <br>
+    <button class="btn-sm btn-success" type="submit">Create</button>
+    </div>
+    </form>
+    
+    

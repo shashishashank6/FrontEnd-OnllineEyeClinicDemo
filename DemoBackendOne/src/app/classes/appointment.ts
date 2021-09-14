@@ -1,3 +1,4 @@
+import { Doctor } from "./doctor";
 import { Patient } from "./patient";
 
 export class Appointment{
@@ -6,4 +7,5 @@ export class Appointment{
     timeOfAppointment:String;
     consultationFee:number;
     patient:Patient;
+    doctor:Doctor;
 }

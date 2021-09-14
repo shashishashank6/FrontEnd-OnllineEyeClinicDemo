@@ -1,0 +1,92 @@
+<!---
+<table class="table table-striped table-sm table-hover table-responsive-sm">
+    <caption><h6> Report Details </h6></caption>
+<thead>
+    <tr>
+        <th>Report Id</th>
+        <th>Report date</th>
+        <th>Description</th>
+        <th>visualAcuity</th>
+        <th>visualAcuityForNear</th>
+        <th>visualAcuityForDistance</th>
+        <th>
+            Test Name
+        </th>
+        <th>
+            Test Description
+        </th>
+        <th>
+            Test Cost
+        </th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+      <td>{{report.reportId}}</td>
+        <td> {{report.dateOfReport}}</td>
+        <td>{{report.description}}</td>
+        <td>{{report.visualAcuity}}</td>
+        <td> {{report.visualAcuityForNear}}</td>
+        <td>{{report.visualAcuityForDistance}}</td>
+        <td>{{test.testName}}</td>
+      <td>{{test.testDescription}}</td>
+      <td>{{test.testCost}}</td>
+    </tr>
+</tbody>
+</table>
+-->
+<div class="odd-section">
+    <div class="container">
+      <table class="table table-responsive table-striped table-sm table-hover">
+            <caption>Your Report and Test Details</caption>
+        <tbody>
+          <tr>
+            <th scope="row">Report Id </th>
+            <td>{{report.reportId}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Date of Report </th>
+            <td> {{report.dateOfReport}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Report Description</th>
+            <td>{{report.description}}</td>
+          </tr>
+          <tr>
+            <th scope="row">visual Acuity </th>
+            <td>{{report.visualAcuity}}</td>
+          </tr>
+          <tr>
+            <th scope="row">visual Acuity For Near</th>
+            <td>{{report.visualAcuityForNear}}</td>
+          </tr>
+          <tr>
+            <th scope="row">visual Acuity For Distance</th> 
+            <td>{{report.visualAcuityForDistance}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Test Id</th>
+            <td>{{test.testId}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Test Name </th>
+            <td>{{test.testName}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Test Description</th>
+            <td>{{test.testDescription}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Test Cost</th>
+            <td>{{test.testCost}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Doctor Name</th>
+            <td>{{doctor.doctorName}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <br>
+  <button (click)="goBack()" class="btn btn-sm btn-primary">Go Back</button>

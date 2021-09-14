@@ -8,6 +8,7 @@
         <th>Test Description</th>
         <th>Update Test</th>
         <th>Delete Test</th>
+        <th>Create Report</th>
         <!--<th>Actions</th>-->
     </tr>
 </thead>
@@ -26,7 +27,12 @@
             <td>
             <button (click)="deleteTest(test.testId)" class="btn-sm btn-danger">Delete</button>
         </td>
+        <td>
+            <button (click)="addReport(test.testId)" class="btn btn-sm btn-primary">Add Report</button>
+        </td>
     </tr>
 </tbody>
 </table>
+<br>
+<button (click)="goBack()" class="btn btn-sm btn-primary">GoTo admin View</button>
 

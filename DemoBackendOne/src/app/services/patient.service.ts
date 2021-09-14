@@ -16,8 +16,8 @@ export class PatientService {
   getPatientsList():Observable<Patient[]>{
     return this.http.get<Patient[]>(this.baseUrl);
   }
-  createPatient(patient:Patient):Observable<Object>{
-    return this.http.post(this.baseUrl,patient);
+  createPatient(patient:Patient):Observable<Patient>{
+    return this.http.post<Patient>(this.baseUrl,patient);
   }
   getPatientById(id:number):Observable<Patient>{
   return this.http.get<Patient>(this.baseUrl+"/"+id);
@@ -31,4 +31,9 @@ export class PatientService {
   viewAppointmentByPatient(id:number):Observable<Appointment>{
     return this.http.get<Appointment>(this.baseUrl1+"/"+id);
   }
+  loginService(login){
+    //alert("loginService: "+JSON.stringify(login));
+    return this.http.post("http://localhost:8099/patient/api/v1/authenticate", login);
+  }
+  
 }

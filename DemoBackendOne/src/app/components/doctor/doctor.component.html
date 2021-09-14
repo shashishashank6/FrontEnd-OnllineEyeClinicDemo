@@ -9,7 +9,8 @@
         <th>Doctor Email</th>
         <th>Doctor Username</th>
         <th>Doctor Address</th>
-        <th>Actions</th>
+        <th>Update</th>
+        <th>Delete</th>
     </tr>
 </thead>
 <tbody>
@@ -26,14 +27,20 @@
         <!--<td>{{doctors.test[0]?.testName}}</td>-->
         <td>
             <button (click)="updateDoctor(doctors.doctorId)" class="btn-sm btn-info">Update</button>
-            <!--
-            &nbsp;
-            <button (click)="deleteDoctor(doctors.doctorId)" class="btn-sm btn-danger">Delete</button>-->
+            </td>
+            
             <td>
+            <button (click)="deleteDoctor(doctors.doctorId)" class="btn-sm btn-danger">Delete</button>
+        </td>
+            <td>
+                <!---
             &nbsp;
             <button (click)="doctorDetails(doctors.doctorId)" class="btn-sm btn-primary">View</button>
+                -->
         </td>
     </tr>
 </tbody>
 </table>
+<br>
+<button (click)="goBack()" class="btn-sm btn-primary">GoTo Admin View</button>
 

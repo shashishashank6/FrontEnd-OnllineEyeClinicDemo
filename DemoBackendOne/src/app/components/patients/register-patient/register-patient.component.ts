@@ -19,7 +19,7 @@ formatedDate:any;
     this.patientForm=this.fb.group({
       patientName:['',Validators.required],
       patientAge:['',Validators.required],
-      patientMobile:['',Validators.required],
+      patientMobile:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
       patientEmail:['',Validators.required],
       patientDOB:['',Validators.required/*,this.pipe.transform(this.date, "dd-MMM-yyyy")*/],
       patientUserName:['',Validators.required],
@@ -29,10 +29,12 @@ formatedDate:any;
     
   }
 savePatient(){
+  
 this.formatedDate=this.pipe.transform(this.patient.patientDOB, "dd-MMM-yyyy");
 this.patient.patientDOB=this.formatedDate;
   if (this.patientForm.valid) {
     this.patientService.createPatient(this.patient).subscribe(data=>{
+      alert("registered");
       this.goToPatientsList();
     },
     error=>console.error()
@@ -41,7 +43,7 @@ this.patient.patientDOB=this.formatedDate;
   else{
     this.validateAllFields(this.patientForm);
   }
-  console.log(this.patient);
+ // console.log(this.patient);
 }
 validateAllFields(formGroup: FormGroup) {         
   Object.keys(formGroup.controls).forEach(field => {  

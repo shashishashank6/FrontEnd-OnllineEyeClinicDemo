@@ -1,0 +1,50 @@
+caption{
+    caption-side: top;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    --table-width: 100%; /* Or any value, this will change dinamically */
+  }
+  .container {
+    position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+table {
+    border-top: hidden;
+    font-size: 14px;
+}
+
+.table td,
+.table th {
+  width: 50%;
+  float: left;
+  word-break: break-word;
+  padding-left: 10px;
+}
+
+td,
+th[scope=row] {
+    color: #808080;
+}
+
+.odd-section {
+  width: 100%;
+  background: #fff;
+  padding: 3em 0em;
+}
+
+/*
+<td>{{report.reportId}}</td>
+        <td> {{report.dateOfReport}}</td>
+        <td>{{report.description}}</td>
+        <td>{{report.visualAcuity}}</td>
+        <td> {{report.visualAcuityForNear}}</td>
+        <td>{{report.visualAcuityForDistance}}</td>
+        <td>{{test.testName}}</td>
+      <td>{{test.testDescription}}</td>
+      <td>{{test.testCost}}</td>
+*/

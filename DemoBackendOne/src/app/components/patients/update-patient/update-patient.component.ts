@@ -26,7 +26,7 @@ patient:Patient=new Patient();
     );
     this.patientForm=this.fb.group({
       patientName:['',Validators.required],
-      patientAge:['',Validators.required],
+      patientAge:['',[Validators.required,Validators.min(18),Validators.max(100)]],
       patientMobile:['',Validators.required],
       patientEmail:['',Validators.required],
       //patientDOB:['',Validators.required],
@@ -60,6 +60,9 @@ patient:Patient=new Patient();
       }
 
       getPatientDetail(){
+        this.router.navigate(['patient-details',this.id]);
+      }
+      goBack(){
         this.router.navigate(['patient-details',this.id]);
       }
 }

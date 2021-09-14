@@ -15,4 +15,10 @@ return  this.http.post<Appointment>(this.baseUrl,app);
 deleteAppointment(id:number):Observable<Object>{
   return this.http.delete(this.baseUrl+"/"+id);
 }
+updateAppointment(app:Appointment):Observable<Appointment>{
+  return this.http.put<Appointment>(this.baseUrl,app);
+}
+getAppointmentById(id:number):Observable<Appointment>{
+  return this.http.get<Appointment>(this.baseUrl+"/"+id);
+}
 }

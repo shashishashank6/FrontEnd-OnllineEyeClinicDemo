@@ -1,5 +1,5 @@
 import { PlatformLocation } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
 import { Admin } from 'src/app/classes/admin';
 import { AdminService } from 'src/app/services/admin.service';
@@ -14,6 +14,7 @@ export class AdminDetailComponent implements OnInit {
 id:number;
 admin:Admin;
 admin1:Admin[];
+
   constructor(private route:ActivatedRoute,private adminService:AdminService,private route2:Router) { 
     route2.events
       .subscribe((event: NavigationStart) => {
@@ -38,7 +39,11 @@ logout(): void {
   if (sessionStorage.getItem("username") != null) {
     //console.log(sessionStorage.getItem("username"));
     sessionStorage.removeItem("username");
+    sessionStorage.removeItem("userid");
     this.route2.navigate(['/login']);
   }
+}
+reports(){
+  this.route2.navigate(['report-list',this.id]);
 }
 }

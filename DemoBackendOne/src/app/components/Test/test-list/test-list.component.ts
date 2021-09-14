@@ -9,6 +9,7 @@ import { TestService } from 'src/app/services/test.service';
   styleUrls: ['./test-list.component.css']
 })
 export class TestListComponent implements OnInit {
+  currentAdmin:any;
 @Input() testList:Test[];
 @Input() test:Test;
   constructor(private testService:TestService,private route:Router) { }
@@ -26,8 +27,19 @@ errorMessage:string;
   }
   deleteTest(id:number){
     this.testService.deleteTest(id).subscribe(data=>{
+      alert("test deleted; refresh page");
       this.route.navigate(["test-list"]);
     },
     error => this.errorMessage = error as any);
+  }
+  addReport(id:number){
+    this.route.navigate(['add-report-by-test',id]);
+  }
+  goBack(){
+    this.currentAdmin=sessionStorage.getItem('userid');
+    this.route.navigate(['admin-details',this.currentAdmin]);
+  }
+  addTest(){
+    this.route.navigate(['create-test']);
   }
 }

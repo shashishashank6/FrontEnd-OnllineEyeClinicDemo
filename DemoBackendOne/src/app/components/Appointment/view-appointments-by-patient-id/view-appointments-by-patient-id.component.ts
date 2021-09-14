@@ -27,7 +27,7 @@ errorMessage:string;
     );
   }
   deleteAppointment(id:number){
-    let result = confirm('Do you want to delete the student?');
+    let result = confirm('Do you want to delete the appointment?');
     if (result) {
     this.appService.deleteAppointment(id).subscribe(data=>{
       this.goBack();
@@ -37,6 +37,17 @@ errorMessage:string;
     );
   }
   }
+  updateAppointment(id:number){
+    let pid:number;
+    pid=this.id;
+    this.route.navigate(['update-appointment',id,pid]);
+  }
+  /*
+  goToViewPatientAppointments(){
+    let id:number;
+    id=this.id;
+    this.route.navigate(['view-appointments-by-patient',id]);
+  }*/
   goBack(){
     this.route.navigate(['patient-details',this.id]);
   }

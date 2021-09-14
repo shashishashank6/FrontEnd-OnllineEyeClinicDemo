@@ -1,4 +1,3 @@
-<p>update-doctor works!</p>
 <div class="col-md-6 offset-md-3">
     <h6>Update-doctor</h6>
     <form (ngSubmit)="saveUpdatedDoctor()" autocomplete="off">
@@ -40,6 +39,8 @@
     [(ngModel)]="doctor.doctorAddress" name="address">
     </div>
     <br>
-    <button class="btn-sm btn-success" type="submit">Submit</button>
+    <button class="btn-sm btn-primary" type="submit">Submit</button>
+    &nbsp;
+    <button (click)="goBack()" class="btn-sm btn-primary" type="submit">Go Back</button>
     </form>
     </div>

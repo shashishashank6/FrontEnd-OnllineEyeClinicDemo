@@ -15,36 +15,64 @@
     
       <br/>
     <div class="form-group">
-        <label  for="testName">Date of Appointment</label>
+        <label  for="dateOfAppointment">Date of Appointment</label>
         <input  [(ngModel)]="appoint.dateOfAppointment"
-         class="form-control" formControlName="dateOfAppointment" type="date" name="dateOfAppointment" id="dateOfAppointment">
-        <!--<div *ngIf="testForm.get('testName').touched && testForm.get('testName').invalid"  class="alert alert-danger">
+         class="form-control" formControlName="dateOfAppointment" type="date" name="dateOfAppointment" id="dateOfAppointment" required>
+        <div *ngIf="appForm.get('dateOfAppointment').touched && appForm.get('dateOfAppointment').invalid"  class="alert alert-danger">
     required
-        </div>-->
+        </div>
    </div>
 <div class="form-group">
-        <label for="testDescription">Time of Appointment</label>
+        <label for="timeOfAppointment">Time of Appointment</label>
         <input [(ngModel)]="appoint.timeOfAppointment"
         class="form-control" type="text" name="timeOfAppointment" id="timeOfAppointment" formControlName="timeOfAppointment"
         placeholder="Enter Time of Appointment(Eg-2:00PM)">
-        <!--<div *ngIf="testForm.get('testDescription').touched && testForm.get('testDescription').invalid"  class="alert alert-danger">
+        <div *ngIf="appForm.get('timeOfAppointment').touched && appForm.get('timeOfAppointment').invalid"  class="alert alert-danger">
             required
             </div>
-    </div>--->
-
     </div>
     <div class="form-group">
-        <label for="testDescription">Consultation Fee</label>
-        <input [(ngModel)]="appoint. consultationFee"
-        class="form-control" type="number" name="consultationFee" id="consultationFee" formControlName="consultationFee"
-        placeholder="consultation Fee">
-        <!--<div *ngIf="testForm.get('testDescription').touched && testForm.get('testDescription').invalid"  class="alert alert-danger">
-            required
+      <label for="consultationFee">Consultation Fee</label>
+      <input [(ngModel)]="appoint.consultationFee"
+      class="form-control" type="number" name="consultationFee" id="consultationFee" formControlName="consultationFee"
+      placeholder="Enter consultationFee(minimum 500)">
+      <div *ngIf="appForm.get('consultationFee').touched && appForm.get('consultationFee').invalid"  class="alert alert-danger">
+        <div *ngIf="appForm.get('consultationFee').errors.required">
+          required
+        </div>
+        <div *ngIf="appForm.get('consultationFee').errors.min">
+        consultationFee cannot be entered as less than 500
+        </div>
+          </div>
+  </div>
+    <div class="form-group">
+        <label>
+            Select Doctor
+        </label>
+          <select class="form-select form-select-sm" aria-label="form-select-sm example">
+            <option selected>Open this select menu</option>
+              <option *ngFor="let d of doctor">
+                {{d.doctorId}}---{{d.doctorName}}
+              </option>
+          </select>
+    </div>
+    <div class="form-group">
+        <label for="doctorId">Doctor</label>
+        <input [(ngModel)]="appoint.doctor.doctorId"
+        class="form-control" type="number" name="doctorId" id="doctorId" formControlName="doctorId"
+        placeholder="Enter id of doctor from the above select menu">
+        <div *ngIf="appForm.get('doctorId').touched && appForm.get('doctorId').invalid"  class="alert alert-danger">
+            <div *ngIf="appForm.get('doctorId').errors.required">
+              required
             </div>
-    </div>--->
-
+            <div *ngIf="appForm.get('doctorId').errors.min">
+            negative numbers / 0 cant be enered
+            </div>
+            </div>
     </div>
     <br>
     <input type="submit" value="Book" class="btn-sm btn-primary">
+    &nbsp;
+    <input (click)="goBack()" type="submit" value="Go Back" class="btn-sm btn-primary">
 </form>
 

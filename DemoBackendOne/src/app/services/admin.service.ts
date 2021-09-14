@@ -15,7 +15,7 @@ export class AdminService {
   //);
     constructor(private http:HttpClient) { }
   loginService(login){
-    alert("loginService: "+JSON.stringify(login));
+    //alert("loginService: "+JSON.stringify(login));
     return this.http.post("http://localhost:8099/admin/api/v1/authenticate", login);
   }
   getAdminList():Observable<Admin[]>{

@@ -13,16 +13,22 @@
         <th>
             Test Description
         </th>
+        <th>
+            View Report
+        </th>
         </tr>
     </thead>
     <tbody *ngFor="let t of test|keyvalue;let i=index">
-        <tr>
+        <tr *ngIf="t.value['testName']">
             <td>{{i+1}}</td>
             <td>
                 {{t.value['testName']}} 
             </td>
             <td>
                 {{t.value['testDescription']}}
+            </td>
+            <td>
+                <button (click)="viewReport(t.value['testId'])" class="btn btn-sm btn-info">View</button>
             </td>
         </tr>
     </tbody>

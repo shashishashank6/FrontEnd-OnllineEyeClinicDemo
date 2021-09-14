@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Test } from 'src/app/classes/test';
@@ -24,5 +25,10 @@ errorMessage:string;
   }
   goBack(){
     this.route.navigate(['doctor-details',this.id]);
+  }
+  viewReport(id:number){
+    let doctorId:number;
+    doctorId=this.id;
+    this.route.navigate(['view-test-report',id,doctorId]);
   }
 }

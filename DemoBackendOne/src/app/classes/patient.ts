@@ -11,4 +11,11 @@ patientUserName:string;
 patientPassword:string;
 patientAddress:string;
 appointments:Appointment[];
+overload_constructor(){
+    
+}
+constructor(username?:string,password?:string){
+    this.patientUserName=username;
+    this.patientPassword=password;
+}
 }

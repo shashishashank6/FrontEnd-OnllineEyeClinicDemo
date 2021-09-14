@@ -20,6 +20,20 @@ import { ViewTestByDoctorIdComponent } from './components/Test/view-test-by-doct
 import { UpdateTestComponent } from './components/Test/update-test/update-test.component';
 import { ViewAppointmentsByPatientIdComponent } from './components/Appointment/view-appointments-by-patient-id/view-appointments-by-patient-id.component';
 import { CreatePatientAppointmentComponent } from './components/Appointment/create-patient-appointment/create-patient-appointment.component';
+import { UpdatePatientAppointmentComponent } from './components/Appointment/update-patient-appointment/update-patient-appointment.component';
+import { AddReportComponent } from './components/report/add-report/add-report.component';
+import { UpdateReportComponent } from './components/report/update-report/update-report.component';
+import { ReportDetailsComponent } from './components/report/report-details/report-details.component';
+import { ReportDataComponent } from './components/report/report-data/report-data.component';
+import { ReportListComponent } from './components/report/report-list/report-list.component';
+import { ViewReportByTestComponent } from './components/report/view-report-by-test/view-report-by-test.component';
+import { CreateReportByTestComponent } from './components/report/create-report-by-test/create-report-by-test.component';
+import { ViewReportByPatientComponent } from './components/report/view-report-by-patient/view-report-by-patient.component';
+import { PatientLoginComponent } from './components/patients/patient-login/patient-login.component';
+import { ViewDoctorAppointmentComponent } from './components/Appointment/view-doctor-appointment/view-doctor-appointment.component';
+import { PatientGuardGuard } from './guards/patient-guard.guard';
+import { DoctorLoginComponent } from './components/doctor-login/doctor-login.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 const routes: Routes = [
   {
     path:'doctors',
@@ -39,7 +53,7 @@ const routes: Routes = [
   },
   {
     path:'',
-    redirectTo:'login',
+    redirectTo:'home-page',
     pathMatch:'full'
   },
   {
@@ -47,9 +61,21 @@ const routes: Routes = [
     component:AdminListComponent
   },
   {
+    path:'home-page',
+    component:HomePageComponent
+  },
+  {
     path:'login',
     component:LoginComponent
   },{
+    path:'patient-login',
+    component:PatientLoginComponent
+  },
+  {
+    path:"doctor-login",
+    component:DoctorLoginComponent
+  },
+  {
     path:'admin-details/:id',
     component:AdminDetailComponent,
     canActivate:[AdminCanActivateGuardServiceGuard]
@@ -59,15 +85,18 @@ const routes: Routes = [
     component:DoctorComponent
   },{
     path:'patients-list',
-    component:PatientComponent
+    component:PatientComponent,
+    //canActivate:[AdminCanActivateGuardServiceGuard]
   },
   {
     path:'patient-details/:id',
-    component:PatientDetailComponent
+    component:PatientDetailComponent,
+   // canActivate:[PatientGuardGuard]
   },
   {
     path:'update-patient/:id',
-    component:UpdatePatientComponent
+    component:UpdatePatientComponent,
+    //canActivate:[PatientGuardGuard]
  },
  {
    path:'register-patient',
@@ -77,7 +106,8 @@ const routes: Routes = [
    component:SampleComponent
  },{
    path:'test-list',
-   component:TestListComponent
+   component:TestListComponent,
+   //canActivate:[AdminCanActivateGuardServiceGuard]
  },{
    path:'create-test-doctor/:id',
    component:CreateDoctorTestComponent
@@ -88,14 +118,58 @@ const routes: Routes = [
  },
  {
    path:"update-test/:id",
-   component:UpdateTestComponent
+   component:UpdateTestComponent,
+   //canActivate:[AdminCanActivateGuardServiceGuard]
  },{
    path:'view-appointments-by-patient/:id',
-   component:ViewAppointmentsByPatientIdComponent
+   component:ViewAppointmentsByPatientIdComponent,
+   //canActivate:[PatientGuardGuard]
  },{
    path:'create-patient-appointment/:id',
-   component:CreatePatientAppointmentComponent
- }
+   component:CreatePatientAppointmentComponent,
+   //canActivate:[PatientGuardGuard]
+ },{
+   path:'update-appointment/:id/:pid',
+   component:UpdatePatientAppointmentComponent,
+   //canActivate:[PatientGuardGuard]
+ },
+ {
+  path:'add-report',
+  component:AddReportComponent,
+  //canActivate:[AdminCanActivateGuardServiceGuard]
+},
+{
+  path:'update-report/:id',
+  component:UpdateReportComponent,
+  //canActivate:[AdminCanActivateGuardServiceGuard]
+},
+{
+  path:'report-details/:id',
+  component:ReportDetailsComponent
+},{
+  path:'report-list',
+  component:ReportListComponent,
+  //canActivate:[AdminCanActivateGuardServiceGuard]
+},
+{
+  path:'report-list/:id',
+  component:ReportListComponent,
+},
+{
+  path:'view-test-report/:id/:doctorId',
+  component:ViewReportByTestComponent
+},{
+  path:'add-report-by-test/:id',
+  component:CreateReportByTestComponent,
+  //canActivate:[AdminCanActivateGuardServiceGuard]
+},{
+  path:'view-report-by-patient/:id',
+  component:ViewReportByPatientComponent,
+  //canActivate:[PatientGuardGuard]
+},{
+  path:'view-appointment-by-doctor/:id',
+  component:ViewDoctorAppointmentComponent
+}
 ];
 
 @NgModule({

@@ -1,0 +1,44 @@
+<div class="alert alert-primary head">
+    <h6>Book Appointment</h6>
+</div>
+<form [formGroup]="appointForm" autocomplete="off" (ngSubmit)="updateAppointment()"> 
+    <!---
+    <div class="form-group" hidden="true">
+        <input type="text" hidden="true" class="form-control" id="id" [(ngModel)]="test.testId" name="id" formControlName="testId" />
+        <input type="text" hidden="true" class="form-control" id="doctor" [(ngModel)]="test.doctor" name="doctor" formControlName="doctor"/>
+      </div>-->
+    <div class="form-group">
+        <label  for="dateOfAppointment">Date of Appointment</label>
+        <input  [(ngModel)]="appoint.dateOfAppointment"
+         class="form-control" formControlName="dateOfAppointment" type="date" name="dateOfAppointment" id="dateOfAppointment"
+         required
+         >
+    <div *ngIf="appointForm.get('dateOfAppointment').touched && appointForm.get('dateOfAppointment').invalid"  class="alert alert-danger">
+    required
+        </div>
+   </div>
+<div class="form-group">
+        <label for="testDescription">Time of Appointment</label>
+        <input [(ngModel)]="appoint.timeOfAppointment"
+        class="form-control" type="text" name="timeOfAppointment" id="timeOfAppointment" formControlName="timeOfAppointment"
+        placeholder="Enter Time of Appointment(Eg-2:00PM)">
+        <div *ngIf="appointForm.get('timeOfAppointment').touched && appointForm.get('timeOfAppointment').invalid"  class="alert alert-danger">
+            required
+            </div>
+    </div>
+
+    <div class="form-group">
+        <label for="testDescription">Consultation Fee</label>
+        <input [(ngModel)]="appoint.consultationFee"
+        class="form-control" type="number" name="consultationFee" id="consultationFee" formControlName="consultationFee"
+        placeholder="consultation Fee" readonly>
+        <div *ngIf="appointForm.get('consultationFee').touched && appointForm.get('consultationFee').invalid"  class="alert alert-danger">
+            required
+            </div>
+        </div>
+    <br>
+    <input type="submit" value="Update" class="btn-sm btn-primary">
+    &nbsp;
+    <input (click)="goBack()" type="submit" value="Go Back" class="btn-sm btn-primary">
+</form>
+

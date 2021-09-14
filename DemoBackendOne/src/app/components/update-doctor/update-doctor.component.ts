@@ -26,11 +26,15 @@ export class UpdateDoctorComponent implements OnInit {
   saveUpdatedDoctor(){
     this.serviceUpdate.updateDoctor(this.doctor).subscribe(
       data=>{
+        alert("doctor updated");
        this.getDoctorsList();
       }
       );
       }
       getDoctorsList(){
+        this.routeGet.navigate(['doctors']);
+      }
+      goBack(){
         this.routeGet.navigate(['doctors']);
       }
 }

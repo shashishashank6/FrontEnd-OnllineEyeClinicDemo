@@ -26,7 +26,15 @@
         class="form-control" type="number" name="patientMobile" id="patientMobile" formControlName="patientMobile" 
         placeholder="Enter Mobile Number">
         <div *ngIf="patientForm.get('patientMobile').touched && patientForm.get('patientMobile').invalid"  class="alert alert-danger">
-            required
+            <div *ngIf="patientForm.get('patientMobile').errors.required">
+                required
+            </div>
+            <div *ngIf="patientForm.get('patientMobile').errors.minlength">
+                mobile number should be 10 digits
+            </div>
+            <div *ngIf="patientForm.get('patientMobile').errors.maxlength">
+                mobile number should be 10 digits
+            </div>
             </div>
     </div>
 

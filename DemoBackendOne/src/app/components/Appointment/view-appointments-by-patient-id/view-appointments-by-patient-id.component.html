@@ -17,6 +17,12 @@
             Consultation Fee
         </th>
         <th>
+            Doctor Name
+        </th>
+        <th>
+            Update Appointment
+        </th>
+        <th>
             Delete Appointment
         </th>
         </tr>
@@ -34,7 +40,13 @@
                 {{t.value['consultationFee']}}
             </td>
             <td>
-                <button (click)="deleteAppointment(t.value['appointmentId'])" class="btn-sm btn-danger">Delete Appointment</button>
+                {{t.value['doctor']['doctorName']}}
+            </td>
+            <td>
+                <button (click)="updateAppointment(t.value['appointmentId'])" class="btn-sm btn-info">Update</button>
+            </td>
+            <td>
+                <button (click)="deleteAppointment(t.value['appointmentId'])" class="btn-sm btn-danger">Delete</button>
             </td>
         </tr>
     </tbody>

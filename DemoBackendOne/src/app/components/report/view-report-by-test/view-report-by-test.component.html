@@ -1,0 +1,98 @@
+<!--<p>report-details works!</p>
+<table class="table table-striped table-sm table-hover table-responsive-sm">
+    <caption><h6> Report Details </h6></caption>
+<thead>
+    <tr>
+        <th>Report Id</th>
+        <th>Report date</th>
+        <th>Description</th>
+        <th>visualAcuity</th>
+        <th>visualAcuityForNear</th>
+        <th>visualAcuityForDistance</th>
+    </tr>
+</thead>
+<tbody *ngFor="let report of report|keyvalue">
+    <tr>
+      <td>{{report.value['reportId']}}</td>
+        <td> {{report.value['dateOfReport']}}</td>
+        <td>{{report.value['description']}}</td>
+        <td>{{report.value['visualAcuity']}}</td>
+        <td> {{report.value['visualAcuityForNear']}}</td>
+        <td>{{report.value['visualAcuityForDistance']}}</td>
+    </tr>
+</tbody>
+</table>
+<br>
+<button (click)="goBack()" class="btn btn-sm btn-primary">Go Back</button>
+<br>
+<br>
+<table class="table table-striped table-sm table-hover table-responsive-sm">
+    <caption><h6>Patient Details</h6></caption>
+<thead>
+    <tr>
+
+        <th>Patient Name</th>
+        <th>Patient Age</th>
+        <th>Patient DOB</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+      <td>{{patient.patientName}}</td>
+      <td>{{patient.patientAge}}</td>
+      <td>{{patient.patientDOB}}</td>
+    </tr>
+</tbody>
+</table>-->
+
+<div class="odd-section">
+    <div class="container">
+      <table class="table table-responsive table-striped table-sm table-hover">
+            <caption>Report and Patient Details</caption>
+        <tbody>
+          <tr>
+            <th scope="row">Report Id </th>
+            <td>{{report.reportId}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Date of Report </th>
+            <td> {{report.dateOfReport}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Report Description</th>
+            <td>{{report.description}}</td>
+          </tr>
+          <tr>
+            <th scope="row">visual Acuity </th>
+            <td>{{report.visualAcuity}}</td>
+          </tr>
+          <tr>
+            <th scope="row">visual Acuity For Near</th>
+            <td>{{report.visualAcuityForNear}}</td>
+          </tr>
+          <tr>
+            <th scope="row">visual Acuity For Distance</th> 
+            <td>{{report.visualAcuityForDistance}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Patient Id</th>
+            <td>{{patient.patientId}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Patient Name </th>
+            <td>{{patient.patientName}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Patient Age</th>
+            <td>{{patient.patientAge}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Patint DOB</th>
+            <td>{{patient.patientDOB}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <br>
+  <button (click)="goBack()" class="btn btn-sm btn-primary">Go Back</button>

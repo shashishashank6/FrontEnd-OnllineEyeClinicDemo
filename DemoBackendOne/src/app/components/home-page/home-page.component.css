@@ -1,0 +1,45 @@
+body{
+    background-size: cover;
+}
+a{
+     color:black;
+}
+.nav-link{
+    color:cornsilk;
+   background-color:black;
+   border-radius: 5px ;  
+   font-weight: bold;
+}
+.nav-item{
+    opacity: 0.7;
+}
+.nav-item a:hover{
+   background-color: turquoise; 
+   color:red;
+   font-weight:bold;
+}
+.navbar{
+    background-color:white;
+    opacity: 0.6;
+    
+}
+.carousel-item{
+    height: 780px;
+}
+h1{
+    top: 70%;
+    width: 100%;
+    text-align: end;
+    position:absolute;
+    color:saddlebrown;
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    font-weight: bolder;
+    font-size: 35px;
+
+}
+.home{
+    background-image:url(Online-Eye-Care-System.jpg);
+    margin-top: 100px;
+    width: 50%;
+    margin-left: 250px;
+}
