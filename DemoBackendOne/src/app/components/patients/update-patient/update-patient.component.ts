@@ -28,7 +28,7 @@ patient:Patient=new Patient();
       patientName:['',Validators.required],
       patientAge:['',[Validators.required,Validators.min(18),Validators.max(100)]],
       patientMobile:['',[Validators.required,Validators.pattern("[0-9]{10}")]],
-      patientEmail:['',Validators.required],
+      patientEmail:['',[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")]],
       //patientDOB:['',Validators.required],
       patientUserName:['',Validators.required],
       patientPassword:['',Validators.required],

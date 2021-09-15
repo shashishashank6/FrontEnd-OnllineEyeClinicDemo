@@ -52,7 +52,12 @@
          class="form-control" type="text" name="patientEmail" id="patientEmail" formControlName="patientEmail" 
         placeholder="Enter Email">
         <div *ngIf="patientForm.get('patientEmail').touched && patientForm.get('patientEmail').invalid"  class="alert alert-danger">
-            required
+            <div *ngIf="patientForm.get('patientEmail').errors.required">
+                required
+            </div>
+            <div *ngIf="patientForm.get('patientEmail').errors.pattern">
+              invalid email
+                </div>
             </div>
     </div>
 
