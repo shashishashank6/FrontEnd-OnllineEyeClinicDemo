@@ -18,8 +18,8 @@ doctor:Doctor=new Doctor();
 form=new FormGroup({
  doctorname:new FormControl('',Validators.required),
  doctorConsultationTime:new FormControl('',Validators.required),
- mobile:new FormControl('',Validators.required),
- email:new FormControl('',Validators.required),
+ mobile:new FormControl('',[Validators.required,Validators.pattern("[0-9]{10}")]),
+ email:new FormControl('',[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")]),
  username:new FormControl('',Validators.required),
  password:new FormControl('',Validators.required),
  address:new FormControl('',Validators.required)
@@ -38,7 +38,7 @@ saveDoctor(){
   this.createDoctor.createDoctor(this.doctor).subscribe(data=>{
     this.goToDoctorsList();
   },
-  error=>console.error()
+  error=>alert("user name already exist")
   );
 }
 else{

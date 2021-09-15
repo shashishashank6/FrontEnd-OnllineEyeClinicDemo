@@ -15,7 +15,15 @@
         <input [(ngModel)]="patient.patientAge"
          class="form-control" type="number" name="patientAge" id="patientAge" formControlName="patientAge" placeholder="Enter Age">
     <div *ngIf="patientForm.get('patientAge').touched && patientForm.get('patientAge').invalid"  class="alert alert-danger">
+        <div *ngIf="patientForm.get('patientAge').errors.required">
             required
+        </div>
+        <div *ngIf="patientForm.get('patientAge').errors.min">
+            minimum age should be 18
+        </div>
+        <div *ngIf="patientForm.get('patientAge').errors.max">
+            maximum age should be 100
+        </div>
             </div>
     </div>
     <div class="form-group">
@@ -29,24 +37,25 @@
             <div *ngIf="patientForm.get('patientMobile').errors.required">
                 required
             </div>
-            <div *ngIf="patientForm.get('patientMobile').errors.minlength">
-                mobile number should be 10 digits
-            </div>
-            <div *ngIf="patientForm.get('patientMobile').errors.maxlength">
-                mobile number should be 10 digits
+            <div *ngIf="patientForm.get('patientMobile').errors.pattern">
+                mobile number should be atmost 10 digits
             </div>
             </div>
     </div>
 
     <div class="form-group">
         
-
         <label for="patientEmail">Patient Email</label>
         <input [(ngModel)]="patient.patientEmail"
          class="form-control" type="text" name="patientEmail" id="patientEmail" formControlName="patientEmail" 
         placeholder="Enter Email">
         <div *ngIf="patientForm.get('patientEmail').touched && patientForm.get('patientEmail').invalid"  class="alert alert-danger">
+        <div *ngIf="patientForm.get('patientEmail').errors.required">
             required
+        </div>
+        <div *ngIf="patientForm.get('patientEmail').errors.pattern">
+          invalid email
+            </div>
             </div>
     </div>
 
@@ -114,4 +123,6 @@
     </div>
     <br>
     <input type="submit" value="Register" class="btn-sm btn-primary">
+    &nbsp;
+    <input (click)="goback()" type="submit" value="Go Back" class="btn-sm btn-primary">
 </form>

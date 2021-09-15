@@ -18,6 +18,12 @@
             <div *ngIf="patientForm.get('patientAge').errors.required">
                 required
             </div>
+            <div *ngIf="patientForm.get('patientAge').errors.min">
+                minimum age should be 18
+            </div>
+            <div *ngIf="patientForm.get('patientAge').errors.max">
+                maximum age should be 100
+            </div>
             </div>
     </div>
     <div class="form-group">
@@ -28,7 +34,13 @@
         class="form-control" type="number" name="patientMobile" id="patientMobile" formControlName="patientMobile" 
         placeholder="Enter Mobile Number">
         <div *ngIf="patientForm.get('patientMobile').touched && patientForm.get('patientMobile').invalid"  class="alert alert-danger">
-            required
+            <div *ngIf="patientForm.get('patientMobile').errors.required">
+                required
+            </div>
+            <div *ngIf="patientForm.get('patientMobile').errors.pattern">
+                mobile number should be atmost 10 digits
+            </div>
+            
             </div>
     </div>
 
@@ -61,10 +73,13 @@
         <label for="patientUserName">Patient UserName</label>
         <input [(ngModel)]="patient.patientUserName"
          class="form-control" type="text" name="patientUserName" id="patientUserName" formControlName="patientUserName"
-        placeholder="enter UserName"
+        placeholder="enter UserName" readonly
         >
         <div *ngIf="patientForm.get('patientUserName').touched && patientForm.get('patientUserName').invalid"  class="alert alert-danger">
-            required
+            <div *ngIf="patientForm.get('patientUserName').errors.required">
+                required
+            </div>
+            
             </div>
     </div>
 

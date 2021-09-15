@@ -18,9 +18,9 @@ formatedDate:any;
   ngOnInit(): void {
     this.patientForm=this.fb.group({
       patientName:['',Validators.required],
-      patientAge:['',Validators.required],
-      patientMobile:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
-      patientEmail:['',Validators.required],
+      patientAge:['',[Validators.required,Validators.min(18),Validators.max(100)]],
+      patientMobile:['',[Validators.required,Validators.pattern("[0-9]{10}")]],
+      patientEmail:['',[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")]],
       patientDOB:['',Validators.required/*,this.pipe.transform(this.date, "dd-MMM-yyyy")*/],
       patientUserName:['',Validators.required],
       patientPassword:['',Validators.required],
@@ -35,9 +35,9 @@ this.patient.patientDOB=this.formatedDate;
   if (this.patientForm.valid) {
     this.patientService.createPatient(this.patient).subscribe(data=>{
       alert("registered");
-      this.goToPatientsList();
+      this.router.navigate(['patient-login']);
     },
-    error=>console.error()
+    error=>alert("user name already taken")
     );
   }
   else{
@@ -57,5 +57,8 @@ validateAllFields(formGroup: FormGroup) {
 }
 goToPatientsList(){
   this.router.navigate(['/patients-list']);
+}
+goback(){
+  this.router.navigate(['patient-login']);
 }
 }

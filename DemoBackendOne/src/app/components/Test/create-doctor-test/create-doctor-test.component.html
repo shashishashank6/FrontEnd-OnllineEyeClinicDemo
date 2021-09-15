@@ -18,19 +18,19 @@
         <label  for="testName">Test Name</label>
         <input  [(ngModel)]="test.testName"
          class="form-control" formControlName="testName" type="text" name="testName" id="testName" placeholder="Test Name">
-        <!--<div *ngIf="testForm.get('testName').touched && testForm.get('testName').invalid"  class="alert alert-danger">
+        <div *ngIf="testForm.get('testName').touched && testForm.get('testName').invalid"  class="alert alert-danger">
     required
-        </div>-->
+        </div>
    </div>
 <div class="form-group">
         <label for="testDescription">Test Description</label>
         <input [(ngModel)]="test.testDescription"
         class="form-control" type="text" name="testDescription" id="testDescription" formControlName="testDescription"
         placeholder="Test Description">
-        <!--<div *ngIf="testForm.get('testDescription').touched && testForm.get('testDescription').invalid"  class="alert alert-danger">
+        <div *ngIf="testForm.get('testDescription').touched && testForm.get('testDescription').invalid"  class="alert alert-danger">
             required
             </div>
-    </div>--->
+    
 
     </div>
     <br>

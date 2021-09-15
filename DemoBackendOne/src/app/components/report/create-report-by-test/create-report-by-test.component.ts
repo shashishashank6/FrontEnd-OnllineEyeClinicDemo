@@ -32,7 +32,7 @@ errorMessage:string;
   visualAcuity:['',Validators.required],
   visualAcuityForNear:['',Validators.required],
   visualAcuityForDistance:['',Validators.required],
-  patientId:['']
+  patientId:['',[Validators.required,Validators.min(1)]]
     });
    }
 
@@ -67,7 +67,7 @@ errorMessage:string;
       alert("report added");
       this.route.navigate(['report-list']);
     },
-    error => this.errorMessage = error as any);
+    error =>alert("patient not present"));
   }
   else{
     this.validateAllFields(this.form);

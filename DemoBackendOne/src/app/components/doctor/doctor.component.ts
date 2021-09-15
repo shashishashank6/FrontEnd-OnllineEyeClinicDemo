@@ -17,7 +17,7 @@ export class DoctorComponent implements OnInit {
   admin:Admin;
   
   constructor(private doctorService:DoctorService, private router:Router,private route:ActivatedRoute) { }
-numbering=0;
+//numbering=0;
   ngOnInit(): void {
    this.getDoctors();
   

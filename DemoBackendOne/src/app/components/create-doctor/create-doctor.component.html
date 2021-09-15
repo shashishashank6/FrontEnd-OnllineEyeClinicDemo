@@ -29,7 +29,12 @@ Consultation Time
 <input formControlName="mobile" type="number" class="form-control form-control-sm" id="mobile"
 [(ngModel)]="doctor.doctorMobile">
 <div *ngIf="form.get('mobile').touched && form.get('mobile').invalid"  class="alert alert-danger">
-    required
+    <div *ngIf="form.get('mobile').errors.required">
+        required
+    </div>
+    <div *ngIf="form.get('mobile').errors.pattern">
+        mobile number should be atmost 10 numbers
+    </div>
     </div>
 <label>
     Email
@@ -37,7 +42,12 @@ Consultation Time
 <input formControlName="email" type="text" class="form-control form-control-sm" id="email"
 [(ngModel)]="doctor. doctorEmail" >
 <div *ngIf="form.get('email').touched && form.get('email').invalid"  class="alert alert-danger">
-    required
+    <div *ngIf="form.get('email').errors.required">
+        required
+    </div>
+    <div *ngIf="form.get('email').errors.pattern">
+    invalid email
+    </div>
     </div>
 <label>
     User Name

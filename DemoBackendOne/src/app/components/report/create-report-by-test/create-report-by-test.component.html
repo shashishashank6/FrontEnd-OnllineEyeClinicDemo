@@ -63,9 +63,14 @@
         </label>
         <input formControlName="patientId" type="number" class="form-control form-control-sm" id="patientId"
         [(ngModel)]="report.patient.patientId" placeholder="Enter id of Patient from the above select menu">
-       <!--- <div *ngIf="form.get('visualAcuityForDistance').touched && form.get('visualAcuityForDistance').invalid"  class="alert alert-danger">
-            required
-            </div>-->
+       <div *ngIf="form.get('patientId').touched && form.get('patientId').invalid"  class="alert alert-danger">
+            <div *ngIf="form.get('patientId').errors.required">
+                required
+            </div>
+            <div *ngIf="form.get('patientId').errors.min">
+                id cannot be zero or a negative number
+            </div>
+            </div>
             </div>
     <br>
     <button class="btn-sm btn-success" type="submit">Create</button>

@@ -28,7 +28,7 @@ doctor:Doctor;
   this.doctor=new Doctor();
   this.doctorService.getDoctorById(this.id).subscribe(data=>{
     this.doctor=data;
-    console.log(this.doctor);
+   // console.log(this.doctor);
    // this.test=this.doctor.test;
   });
   }

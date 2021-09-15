@@ -1,22 +1,31 @@
 <div class="col-md-6 offset-md-3">
     <h6>Update-doctor</h6>
-    <form (ngSubmit)="saveUpdatedTest()" autocomplete="off">
+    <form (ngSubmit)="saveUpdatedTest()" autocomplete="off" [formGroup]="testForm">
     <div class="form-group">
     <label>
      Test Name
     </label>
-    <input type="text"  class="form-control form-control-sm"  id="testName"
+    <input type="text"  class="form-control form-control-sm"  id="testName" formControlName="testName"
     [(ngModel)]="test.testName" name="testName">
+    <div *ngIf="testForm.get('testName').touched && testForm.get('testName').invalid"  class="alert alert-danger">
+        required
+            </div>
     <label>
     Test Cost
     </label>
-    <input type="number" class="form-control form-control-sm" id="testCost"
+    <input type="number" class="form-control form-control-sm" id="testCost" formControlName="testCost"
     [(ngModel)]="test.testCost" name="testCost">
+    <div *ngIf="testForm.get('testCost').touched && testForm.get('testCost').invalid"  class="alert alert-danger">
+        required
+        </div>
     <label>
         Test Description
     </label>
-    <input type="text" class="form-control form-control-sm" id="testDescription"
+    <input type="text" class="form-control form-control-sm" id="testDescription" formControlName="testDescription"
     [(ngModel)]="test.testDescription" name="testDescription">
+    <div *ngIf="testForm.get('testDescription').touched && testForm.get('testDescription').invalid"  class="alert alert-danger">
+        required
+        </div>
     <br>
     <button class="btn-sm btn-success" type="submit">Update</button>
     </div>

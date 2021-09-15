@@ -1,39 +1,49 @@
-<p>update-report works!</p>
 <div class="col-md-6 offset-md-3">
     <h6>Update-report</h6>
-    <form (ngSubmit)="saveUpdatedReport()" autocomplete="off">
+    <form (ngSubmit)="saveUpdatedReport()" autocomplete="off" [formGroup]="reportForm">
     <div class="form-group">
 
-    <label>
-     Report Id
-    </label>
-    <input type="number"  class="form-control form-control-sm"  id="report id"
-    [(ngModel)]="report.reportId" name="report Id">
+    
     <label>
         dateOfReport
     </label>
-    <input type="text" class="form-control form-control-sm" id="DateofReport"
+    <input type="text" class="form-control form-control-sm" id="DateofReport" formControlName="dateOfReport"
     [(ngModel)]="report.dateOfReport" name="DateofReport">
+    <div *ngIf="reportForm.get('dateOfReport').touched && reportForm.get('dateOfReport').invalid"  class="alert alert-danger">
+        required
+            </div>
     <label>
         descriptionOfReport
     </label>
-    <input type="text" class="form-control form-control-sm" id="descriptionOfReport"
+    <input type="text" class="form-control form-control-sm" id="descriptionOfReport" formControlName="descriptionOfReport"
     [(ngModel)]="report.description" name="descriptionOfReport">
+    <div *ngIf="reportForm.get('descriptionOfReport').touched && reportForm.get('descriptionOfReport').invalid"  class="alert alert-danger">
+        required
+            </div>
     <label>
         visualAcuity
     </label>
-    <input type="text" class="form-control form-control-sm" id="visual Acuity"
+    <input type="text" class="form-control form-control-sm" id="visual Acuity" formControlName="visualAcuity"
     [(ngModel)]="report.visualAcuity" name="visual Acuity">
+    <div *ngIf="reportForm.get('visualAcuity').touched && reportForm.get('visualAcuity').invalid"  class="alert alert-danger">
+        required
+            </div>
     <label>
         visualAcuityForNear
         </label>
-    <input type="text" class="form-control form-control-sm" id="visualAcuityForNear"
+    <input type="text" class="form-control form-control-sm" id="visualAcuityForNear" formControlName="visualAcuityForNear"
     [(ngModel)]="report.visualAcuityForNear" name="visualAcuityForNear">
+    <div *ngIf="reportForm.get('visualAcuityForNear').touched && reportForm.get('visualAcuityForNear').invalid"  class="alert alert-danger">
+        required
+            </div>
     <label>
         visualAcuityForDistance
     </label>
-    <input type="text" class="form-control form-control-sm" id="visualAcuityForDistance"
+    <input type="text" class="form-control form-control-sm" id="visualAcuityForDistance" formControlName="visualAcuityForDistance"
     [(ngModel)]="report.visualAcuityForDistance" name="visualAcuityForDistance">
+    <div *ngIf="reportForm.get('visualAcuityForDistance').touched && reportForm.get('visualAcuityForDistance').invalid"  class="alert alert-danger">
+        required
+            </div>
 </div>
     <br>
     <button class="btn-sm btn-primary" type="submit">Submit</button>

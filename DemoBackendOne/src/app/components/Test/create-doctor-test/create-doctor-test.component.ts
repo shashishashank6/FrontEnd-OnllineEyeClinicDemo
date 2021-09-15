@@ -1,6 +1,6 @@
 import { JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor } from 'src/app/classes/doctor';
 import { Test } from 'src/app/classes/test';
@@ -46,6 +46,7 @@ currentDoctor:Doctor;
   }
   errorMessage:String;
   createTest(test:Test){
+    if (this.testForm.valid) {
     test.doctor=this.currentDoctor;
    // console.log(this.currentDoctor);
     //test.doctorId=this.currentDoctor.doctorId;
@@ -57,6 +58,20 @@ currentDoctor:Doctor;
       this.route.navigate(["doctor-details",this.currentDoctor.doctorId]);
     },
     error => this.errorMessage = error as any);
+  }
+  else{
+    this.validateAllFields(this.testForm);
+  }
+  }
+  validateAllFields(formGroup: FormGroup) {         
+    Object.keys(formGroup.controls).forEach(field => {  
+        const control = formGroup.get(field);            
+        if (control instanceof FormControl) {             
+            control.markAsTouched({ onlySelf: true });
+        } else if (control instanceof FormGroup) {        
+            this.validateAllFields(control);  
+        }
+    });
   }
   goBack(){
     this.route.navigate(["doctor-details",this.currentDoctor.doctorId]);

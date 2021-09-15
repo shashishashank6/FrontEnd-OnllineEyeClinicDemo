@@ -27,7 +27,7 @@ patient:Patient=new Patient();
     this.patientForm=this.fb.group({
       patientName:['',Validators.required],
       patientAge:['',[Validators.required,Validators.min(18),Validators.max(100)]],
-      patientMobile:['',Validators.required],
+      patientMobile:['',[Validators.required,Validators.pattern("[0-9]{10}")]],
       patientEmail:['',Validators.required],
       //patientDOB:['',Validators.required],
       patientUserName:['',Validators.required],
@@ -50,6 +50,7 @@ patient:Patient=new Patient();
     if(this.patientForm.valid){
     this.patientService.updatePatient(this.patient).subscribe(
       data=>{
+        alert("patient-updated");
        this.getPatientDetail();
       }
       );

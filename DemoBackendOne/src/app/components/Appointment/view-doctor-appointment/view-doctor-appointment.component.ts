@@ -24,7 +24,7 @@ patient:Patient;
      // console.log(this.appoint);
       this.patient=data[0].patient;
     },
-    error=>console.log(error));
+    error=>alert("no appointments"));
   }
 goBack(){
   this.route.navigate(['doctor-details',this.id]);

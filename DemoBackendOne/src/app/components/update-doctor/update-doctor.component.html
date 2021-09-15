@@ -1,42 +1,58 @@
 <div class="col-md-6 offset-md-3">
     <h6>Update-doctor</h6>
-    <form (ngSubmit)="saveUpdatedDoctor()" autocomplete="off">
+    <form (ngSubmit)="saveUpdatedDoctor()" autocomplete="off" [formGroup]="doctorForm">
     <div class="form-group">
     <label>
      Full Name
     </label>
-    <input type="text"  class="form-control form-control-sm"  id="doctorName"
+    <input type="text"  class="form-control form-control-sm"  id="doctorName" formControlName="doctorName"
     [(ngModel)]="doctor.doctorName" name="doctorName">
+    <div *ngIf="doctorForm.get('doctorName').touched && doctorForm.get('doctorName').invalid"  class="alert alert-danger">
+        required
+    </div>
     <label>
     Consultation Time
     </label>
-    <input type="text" class="form-control form-control-sm" id="doctorConsultationTime"
+    <input type="text" class="form-control form-control-sm" id="doctorConsultationTime" formControlName="doctorConsultationTime"
     [(ngModel)]="doctor.doctorConsultationTime" name="doctorConsultationTime">
+    <div *ngIf="doctorForm.get('doctorConsultationTime').touched && doctorForm.get('doctorConsultationTime').invalid"  class="alert alert-danger">
+        required
+    </div>
     <label>
         Mobile
     </label>
-    <input type="number" class="form-control form-control-sm" id="mobile"
+    <input type="number" class="form-control form-control-sm" id="mobile" formControlName="mobile"
     [(ngModel)]="doctor.doctorMobile" name="mobile">
+    <div *ngIf="doctorForm.get('mobile').touched && doctorForm.get('mobile').invalid"  class="alert alert-danger">
+        <div *ngIf="doctorForm.get('mobile').errors.required">
+            required
+        </div>
+        <div *ngIf="doctorForm.get('mobile').errors.pattern">
+            mobile number should be atmost 10 digits
+        </div>
+        
+        </div>
     <label>
         Email
     </label>
-    <input type="text" class="form-control form-control-sm" id="email"
-    [(ngModel)]="doctor. doctorEmail" name="email">
+    <input type="text" class="form-control form-control-sm" id="email" formControlName="email"
+    [(ngModel)]="doctor.doctorEmail" name="email">
+    <div *ngIf="doctorForm.get('email').touched && doctorForm.get('email').invalid"  class="alert alert-danger">
+        required
+    </div>
     <label>
         User Name
     </label>
-    <input type="text" class="form-control form-control-sm" id="username"
-    [(ngModel)]="doctor.doctorUserName" name="username">
-    <label>
-        password
-    </label>
-    <input type="password" class="form-control form-control-sm" id="password"
-    [(ngModel)]="doctor.doctorPassword" name="password">
+    <input type="text" class="form-control form-control-sm" id="username" formControlName="doctorUserName"
+    [(ngModel)]="doctor.doctorUserName" name="username" readonly>
     <label>
         Address
     </label>
-    <input type="text" class="form-control form-control-sm" id="address"
+    <input type="text" class="form-control form-control-sm" id="address" formControlName="address"
     [(ngModel)]="doctor.doctorAddress" name="address">
+    <div *ngIf="doctorForm.get('address').touched && doctorForm.get('address').invalid"  class="alert alert-danger">
+        required
+    </div>
     </div>
     <br>
     <button class="btn-sm btn-primary" type="submit">Submit</button>

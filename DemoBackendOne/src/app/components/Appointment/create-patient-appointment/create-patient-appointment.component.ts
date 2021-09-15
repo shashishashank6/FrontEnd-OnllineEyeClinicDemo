@@ -60,7 +60,7 @@ app.dateOfAppointment=this.formatedDate;
       //console.log(data);
       //this.route.navigate(["patient-details",this.currentPatient.patientId]);
     },
-    error => this.errorMessage = error as any
+    error=>alert("doctor doesnot exist")
     );
   }else{
     this.validateAllFields(this.appForm);
